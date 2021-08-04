@@ -25,8 +25,9 @@ def get_product_informations(soup):
 	return(upc, pit, pet, na)
 
 def get_title(soup):
-	title = soup.find('li', {'class': 'active'})
-	return title.text
+	title = soup.title.string
+	title = title.replace("\n","").replace(" | Books to Scrape - Sandbox","").strip()
+	return title
 
 def get_product_description(soup):
 	if soup.find("div", {"id": "product_description"}):
@@ -72,7 +73,7 @@ if response.ok:
 	image_url = get_image_url(soup)
 
 	with open('check_prices.csv', 'w', encoding="utf-8-sig") as outf:
-		outf.write('product_page_url , universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url\n\n')
+		outf.write('product_page_url,universal_product_code,title,price_including_tax,price_excluding_tax,number_available,product_description,category,review_rating,image_url\n\n')
 		outf.write(product_page_url + ',' + upc + ',' + title + ',' + price_including_tax + ',' + price_excluding_tax + ',' + number_available + ',' + product_description + ',' + category + ',' + review_rating + ',' + image_url)
 
 	
