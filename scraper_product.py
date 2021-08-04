@@ -33,7 +33,7 @@ def get_number_available(soup):
 def get_product_description(soup):
 	if soup.find("div", {"id": "product_description"}):
 		pd = soup.find("div", {"id": "product_description"}).find_next("p")
-		return pd.text
+		return pd.text.replace(',','.')
 	else:
 		return "No description available"
 
@@ -75,21 +75,10 @@ if response.ok:
 	category = get_category(soup)
 	review_rating = get_review_rating(soup)
 	image_url = get_image_url(soup)
-	with open('check_prices.csv', 'w', encoding = 'utf-8-sig') as outf:
-		outf.write('product_page_url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url\n\n')
-		outf.write(product_page_url + "," + upc + "," + title + "," + price_including_tax + "," + price_excluding_tax + "," + number_available + "," + product_description + "," + category + "," + review_rating + "," + image_url)
 
-	'''
-	print(product_page_url)
-	print(upc)
-	print(title)
-	print(price_including_tax)
-	print(price_excluding_tax)
-	print(number_available)
-	print(product_description)
-	print(category)
-	print(review_rating)
-	print(image_url)
-	'''
+	with open('check_prices.csv', 'w', encoding="utf-8-sig") as outf:
+		outf.write('product_page_url , universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url\n\n')
+		outf.write(product_page_url + ',' + upc + ',' + title + ',' + price_including_tax + ',' + price_excluding_tax + ',' + number_available + ',' + product_description + ',' + category + ',' + review_rating + ',' + image_url)
+
 	
 
