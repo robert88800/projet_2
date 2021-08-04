@@ -10,25 +10,23 @@ response = requests.get(url)
 def get_product_page_url():
 	return response.url
 
-def get_upc(soup):
-	upc = soup.find("table", {"class": "table table-striped"}).find_all("td")
-	return upc[0].text
+def get_product_informations(soup):
+	for tr_tag in soup.find("table", {"class": "table table-striped"}).find_all("tr"):
+		if tr_tag.find("th").text == "UPC":
+			upc = tr_tag.find("td").text
+		elif tr_tag.find("th").text == "Price (incl. tax)":
+			pit = tr_tag.find("td").text
+		elif tr_tag.find("th").text == "Price (excl. tax)":
+			pet = tr_tag.find("td").text
+		elif tr_tag.find("th").text == "Availability":
+			na = tr_tag.find("td").text
+		else :
+			continue
+	return(upc, pit, pet, na)
 
 def get_title(soup):
 	title = soup.find('li', {'class': 'active'})
 	return title.text
-
-def get_price_including_tax(soup):
-	pit = soup.find("table", {"class": "table table-striped"}).find_all("td")
-	return pit[3].text
-
-def get_price_excluding_tax(soup):
-	pet = soup.find("table", {"class": "table table-striped"}).find_all("td")
-	return pet[2].text
-
-def get_number_available(soup):
-	na = soup.find("table", {"class": "table table-striped"}).find_all("td")
-	return na[5].text
 
 def get_product_description(soup):
 	if soup.find("div", {"id": "product_description"}):
@@ -66,11 +64,8 @@ def get_image_url(soup):
 if response.ok:
 	product_page_url = get_product_page_url()
 	soup = BeautifulSoup(response.content, 'html.parser')
-	upc = get_upc(soup)
 	title = get_title(soup)
-	price_including_tax = get_price_including_tax(soup)
-	price_excluding_tax = get_price_excluding_tax(soup)
-	number_available = get_number_available(soup)
+	upc, price_including_tax, price_excluding_tax, number_available = get_product_informations(soup)
 	product_description = get_product_description(soup)
 	category = get_category(soup)
 	review_rating = get_review_rating(soup)
