@@ -1,10 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = 'http://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html'
-
-response = requests.get(url)
-
 # Ecriture des fonctions
 
 def get_product_page_url():
@@ -24,23 +20,26 @@ def get_product_informations(soup):
 			continue
 	return(upc, pit, pet, na)
 
-def get_title(soup):
+def get_product_title(soup):
 	title = soup.title.string
-	title = title.replace("\n","").replace(" | Books to Scrape - Sandbox","").strip()
+	title = title.replace("\n","")
+	title = title.replace(" | Books to Scrape - Sandbox","")
+	title = title.replace(',','.')
+	title = title.strip()
 	return title
 
 def get_product_description(soup):
 	if soup.find("div", {"id": "product_description"}):
 		pd = soup.find("div", {"id": "product_description"}).find_next("p")
-		return pd.text.replace(',','.')
+		return pd.text.replace(',','.').replace('"','').replace("'",'')
 	else:
 		return "No description available"
 
-def get_category(soup):
+def get_product_category(soup):
 	cat = soup.find("li", {"class": "active"}).find_previous("a")
 	return cat.text
 
-def get_review_rating(soup):
+def get_product_review_rating(soup):
 	if soup.find("div", {"class": "col-sm-6 product_main"}).find("p", {"class": "star-rating One"}):
 		review_rating = "1 Etoile"
 	elif soup.find("div", {"class": "col-sm-6 product_main"}).find("p", {"class": "star-rating Two"}):
@@ -55,26 +54,32 @@ def get_review_rating(soup):
 		review_rating = "Il n'y a pas de note"
 	return review_rating
 
-def get_image_url(soup):
+def get_product_image_url(soup):
 	img = soup.find("div", {"class": "item active"}).find("img")
 	img_url = img["src"]
 	cleaner = img_url.replace("../../", "")
 	img_url = "http://books.toscrape.com/" + cleaner
 	return img_url
 
+
+'''
+url = 'http://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html'
+
+response = requests.get(url)
+
 if response.ok:
 	product_page_url = get_product_page_url()
 	soup = BeautifulSoup(response.content, 'html.parser')
-	title = get_title(soup)
+	title = get_product_title(soup)
 	upc, price_including_tax, price_excluding_tax, number_available = get_product_informations(soup)
 	product_description = get_product_description(soup)
-	category = get_category(soup)
-	review_rating = get_review_rating(soup)
-	image_url = get_image_url(soup)
+	category = get_product_category(soup)
+	review_rating = get_product_review_rating(soup)
+	image_url = get_product_image_url(soup)
 
-	with open('check_prices.csv', 'w', encoding="utf-8-sig") as outf:
+	with open('check_product_price.csv', 'w', encoding="utf-8-sig") as outf:
 		outf.write('product_page_url,universal_product_code,title,price_including_tax,price_excluding_tax,number_available,product_description,category,review_rating,image_url\n\n')
 		outf.write(product_page_url + ',' + upc + ',' + title + ',' + price_including_tax + ',' + price_excluding_tax + ',' + number_available + ',' + product_description + ',' + category + ',' + review_rating + ',' + image_url)
-
+'''
 	
 
