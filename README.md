@@ -1,6 +1,6 @@
 "Utilisation d'un scraper pour le suivi des prix des livres d'occasion"
 
-Pour accéder au dépôt distant du scraper et le copier en local,
+> Pour accéder au dépôt distant du scraper et le copier en local,
 nous utiliserons Git.
 Nous nous assurons que Git est installé sur la machine avec : git config --list, nous clonons ensuite le repository distant dans un répertoire local avec : https://github.com/robert88800/projet_2.
 
