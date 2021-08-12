@@ -75,5 +75,5 @@ def transform_product_data(response, soup):
 
 def load_product_data(product_page_url, upc, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url):
 	with open('check_product_price.csv', 'w', encoding="utf-8-sig") as outf:
-		outf.write('product_page_url~~universal_product_code~~title~~price_including_tax~~price_excluding_tax~~number_available~~product_description~~category~~review_rating~~image_url\n')
-		outf.write(product_page_url + '~~' + upc + '~~' + title + '~~' + price_including_tax + '~~' + price_excluding_tax + '~~' + number_available + '~~' + product_description + '~~' + category + '~~' + review_rating + '~~' + image_url)
+		outf.write('product_page_urlµuniversal_product_codeµtitleµprice_including_taxµprice_excluding_taxµnumber_availableµproduct_descriptionµcategoryµreview_ratingµimage_url\n')
+		outf.write(product_page_url + 'µ' + upc + 'µ' + title + 'µ' + price_including_tax + 'µ' + price_excluding_tax + 'µ' + number_available + 'µ' + product_description + 'µ' + category + 'µ' + review_rating + 'µ' + image_url)

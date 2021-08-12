@@ -63,7 +63,7 @@ def transform_category_data(list_category_url_page):
 def load_category_data(lis_prod_title, list_prod_url_img, cat_name, cat_data):
 	os.mkdir('./data/' + cat_name)
 	with open('./data/' + cat_name + '/' + cat_name + '.csv', 'w', encoding="utf-8-sig") as outf:
-		outf.write('product_page_url~~universal_product_code~~title~~price_including_tax~~price_excluding_tax~~number_available~~product_description~~category~~review_rating~~image_url\n')
+		outf.write('product_page_urlµuniversal_product_codeµtitleµprice_including_taxµprice_excluding_taxµnumber_availableµproduct_descriptionµcategoryµreview_ratingµimage_url\n')
 		for i in range(len(cat_data)):
 			response = requests.get(list_prod_url_img[i])
 			if response.ok:
@@ -71,5 +71,5 @@ def load_category_data(lis_prod_title, list_prod_url_img, cat_name, cat_data):
 				with open('./data/' + cat_name + '/' + lis_prod_title[i] + '.jpg', 'wb') as handler:
 					handler.write(img_data)
 			for j in range(len(cat_data[i])):
-				outf.write(cat_data[i][j] + '~~')
+				outf.write(cat_data[i][j] + 'µ')
 			outf.write('\n')
