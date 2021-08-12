@@ -1,4 +1,4 @@
-from lib_site import extract_site_categories_url, transform_site_data, load_category_data
+from lib_site import extract_site_categories_url, transform_site_data
 
 url = 'http://books.toscrape.com'
 
