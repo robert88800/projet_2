@@ -1,5 +1,3 @@
-import requests
-from bs4 import BeautifulSoup
 from lib_product import extract_product_data, transform_product_data, load_product_data
 
 url = 'http://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html'
