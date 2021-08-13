@@ -1,10 +1,12 @@
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 30px; color: RGB(155, 95, 240);">Utilisation d'un scraper pour le suivi des prix des livres d'occasion</h1>
-</div>   
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Git</h1>              
-</div>   
-> Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous nous assurons qu'il est installé sur la <br/> <br/> machine avec : <br/> <br/> __git config --list__, <br/> <br/> nous clonons ensuite le repository distant dans un répertoire local avec : <br/> <br/> __https://github.com/robert88800/projet_2__.
+# Utilisation d'un scraper pour le suivi des prix des livres d'occasion</h1>
+
+  
+> Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous 
+> nous assurons qu'il est installé sur la machine avec : __git config --list__, nous clonons 
+> ensuite le repository distant dans un répertoire local avec :
+> __https://github.com/robert88800/projet_2__.
+
+
 <div style="border: 1px solid RGB(155, 95, 240);">
 <h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Python</h1>             
 </div>  
