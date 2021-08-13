@@ -2,47 +2,76 @@
 
 ## Git
 
-> Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous
+Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous nous assurons qu'il est installé sur la machine avec : 
 
-> nous assurons qu'il est installé sur la machine avec : 
+```sh
+git config --list
+ ```
 
- '''sh
- __git config --list__
- '''
+Nous clonons ensuite le repository distant dans un répertoire local avec :
 
-> nous clonons ensuite le repository distant dans un répertoire local avec :
-> __https://github.com/robert88800/projet_2__.
+__https://github.com/robert88800/projet_2__
 
+## Python
 
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Python</h1>             
-</div>  
-> Nous nous assurons que l'interpréteur Python est installé sur la machine, on peut le vérifier avec : <br/> <br/> __python3 -V__ pour Ubuntu, <br/> <br/> __py -3 -V__ pour Windows.
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Environnement virtuel</h1>    
-</div>  
->Avant d'installer l'environnement virtuel des futurs scripts, on vérifie l'existence du module Python venv, qui permet de créer et gérer des <br/> <br/> environnements virtuels avec : <br/> <br/> __python3 -m venv --help__ pour Ubuntu, <br/> <br/> __py -3 -m venv --help__ pour Windows. <br/> <br/>
-Nous créons l'environnement virtuel du projet avec : <br/> <br/>
-__python3 -m venv env__, <br/> <br/> nous l'activons avec : <br/> <br/> __source env/bin/activate__ pour Ubuntu, <br/> <br/> __env\scripts\activate__ pour Windows.
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Paquets utiles</h1>           
-</div>
-> Nous installons les paquets Python répertoriés dans le fichier __requirements.txt__ avec : <br/> <br/> __pip3 install -r requirements.txt__.
-<div style="border: 1px solid RGB(155, 95, 240);">
-<h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Exécution des scripts de scraping</h1>                                     
-</div>
-> Le script __scraper_product.py__ permet de scraper un livre, il suffit d'affecter l'url visée à la variable url et de le lancer dans un terminal. <br/> <br/>  Il en est de même pour les scripts __scraper_category.py__ et __scraper_site.py__, qui respectivement permettent de scraper une catégorie de livres <br/> <br/> et toutes les scatégories de livres du site __http://books.toscrape.com__.    
+Nous nous assurons que l'interpréteur Python est installé sur la machine, on peut le vérfier avec pour Ubuntu :
 
-# Dillinger
-## _The Last Markdown Editor, Ever_
+```sh
+python3 -V
+```
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+pour Windows :
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+```sh
+py -3 -V
+```
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+## Environnement virtuel
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨                                                                                       
+Avant d'installer l'environnement virtuel des futurs scripts, on vérifie l'existence du module Python venv, qui permet de créer et gérer des environnements virtuels avec pour Ubuntu :
+
+```sh
+python3 -m venv --help 
+```
+
+pour Windows:
+
+```sh
+py -3 -m venv --help
+```
+
+Nous créons l'environnement virtuel du projet avec pour Ubuntu :
+
+```sh
+python3 -m venv env
+```
+
+pour Windows :
+
+```sh
+py -3 -m venv env
+```
+
+Nous l'activons avec pour Ubuntu :
+
+```sh
+source env/bin/activate
+```
+
+pour Windows : 
+
+```sh
+env\scripts\activate
+```
+
+## Paquets utiles
+
+Nous installons les paquets Python répertoriés dans le fichier __requirements.txt__ avec :
+
+```sh
+pip3 install -r requirements.txt
+```
+
+## Exécution des scripts de scraping
+
+Le script __scraper_product__ permet de scraper un livre, il suffit d'affecter l'url visée à la variable __url__ et de le lancer dans un terminal. Il en est  de même pour les scripts __scraper_category.py__ et __scraper_site.py__, qui permettent respectivement de scraper une catégorie de livres et toutes les catégories de livres du site __http://books.toscrape.com__.
