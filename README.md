@@ -22,4 +22,18 @@ __python3 -m venv env__, <br/> <br/> nous l'activons avec : <br/> <br/> __source
 <div style="border: 1px solid RGB(155, 95, 240);">
 <h1 style="margin: auto; padding: 20px; color: RGB(155, 95, 240);">Exécution des scripts de scraping</h1>                                     
 </div>
-> Le script __scraper_product.py__ permet de scraper un livre, il suffit d'affecter l'url visée à la variable url et de le lancer dans un terminal. <br/> <br/>  Il en est de même pour les scripts __scraper_category.py__ et __scraper_site.py__, qui respectivement permettent de scraper une catégorie de livres <br/> <br/> et toutes les scatégories de livres du site __http://books.toscrape.com__.                                                                                            
+> Le script __scraper_product.py__ permet de scraper un livre, il suffit d'affecter l'url visée à la variable url et de le lancer dans un terminal. <br/> <br/>  Il en est de même pour les scripts __scraper_category.py__ et __scraper_site.py__, qui respectivement permettent de scraper une catégorie de livres <br/> <br/> et toutes les scatégories de livres du site __http://books.toscrape.com__.    
+
+# Dillinger
+## _The Last Markdown Editor, Ever_
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
+AngularJS-powered HTML5 Markdown editor.
+
+- Type some Markdown on the left
+- See HTML in the right
+- ✨Magic ✨                                                                                       
