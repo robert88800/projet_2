@@ -1,9 +1,16 @@
-# Utilisation d'un scraper pour le suivi des prix des livres d'occasion</h1>
+# Utilisation d'un scraper pour le suivi des prix des livres d'occasion
 
-  
-> Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous 
-> nous assurons qu'il est installé sur la machine avec : __git config --list__, nous clonons 
-> ensuite le repository distant dans un répertoire local avec :
+## Git
+
+> Nous ferons appel à Git pour accéder au dépôt distant du scraper et le copier en local, nous
+
+> nous assurons qu'il est installé sur la machine avec : 
+
+ '''sh
+ __git config --list__
+ '''
+
+> nous clonons ensuite le repository distant dans un répertoire local avec :
 > __https://github.com/robert88800/projet_2__.
 
 
