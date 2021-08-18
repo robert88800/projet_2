@@ -1,8 +1,10 @@
+# Import des modules nécessaires
 import os
 import requests
 from bs4 import BeautifulSoup
 from lib_category import extract_category_url_page, transform_category_data, load_category_data
 
+# Obtention des URL pour chaque catégorie du site
 def extract_site_categories_url(url):
 	site_cat_url = []
 	response = requests.get(url)
@@ -14,6 +16,7 @@ def extract_site_categories_url(url):
 	del(site_cat_url[0])
 	return site_cat_url
 
+# Transformation de la donnée et chargement de celle-ci dans un fichier csv
 def transform_site_data(list_url):
 	os.mkdir('data')
 	for url in list_url:

@@ -1,12 +1,15 @@
+# Import des modules nécessaires
 import os
 import requests
 from bs4 import BeautifulSoup
 from lib_product import get_product_informations, get_product_title, get_product_description, get_product_category, get_product_review_rating, get_product_image_url
 
+# Fonction pour obtenir lenom de la catégorie
 def get_category_name(soup):
 	cat_name = soup.find("div", {"class": "page-header action"}).find('h1')
 	return cat_name.text
 
+# Fonction qui récupère la ou les URL des pages de la catégorie
 def extract_category_url_page(url):
 	recup_url = [url]
 	response = requests.get(url)
@@ -22,6 +25,7 @@ def extract_category_url_page(url):
 		next_presence = soup.find("li", {"class": "next"})
 	return cat_name, recup_url
 
+# Fonction qui récupère l'URL de la page du produit
 def get_category_product_url_page(soup):
 	links = []
 	articles = soup.find_all('div', {'class': 'image_container'})
@@ -30,6 +34,7 @@ def get_category_product_url_page(soup):
 		links.append('http://books.toscrape.com/catalogue/' + product_page_url.replace('../',''))
 	return links
 
+# Fonction qui récupère toutes les données nécessaires pour une catégorie
 def get_category_product_data(category_product_url_page, cat_data, list_url_img, list_product_title):
 	for url_page in category_product_url_page:
 		response = requests.get(url_page)
@@ -48,6 +53,7 @@ def get_category_product_data(category_product_url_page, cat_data, list_url_img,
 			list_url_img.append(image_url)
 			list_product_title.append(title)
 
+# Fonction qui transforme la donnée d'une catégorie
 def transform_category_data(list_category_url_page):
 	cat_data = []
 	list_url_img = []
@@ -60,6 +66,7 @@ def transform_category_data(list_category_url_page):
 			get_category_product_data(category_product_url_page, cat_data, list_url_img, list_product_title)		
 	return list_product_title, list_url_img, cat_data
 
+# Fonction pour télécharger la donnée dans un fichier csv 
 def load_category_data(lis_prod_title, list_prod_url_img, cat_name, cat_data):
 	os.mkdir('./data/' + cat_name)
 	with open('./data/' + cat_name + '/' + cat_name + '.csv', 'w', encoding="utf-8-sig") as outf:
