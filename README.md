@@ -74,4 +74,4 @@ pip3 install -r requirements.txt
 
 ## Exécution des scripts de scraping
 
-Le script __scraper_product__ permet de scraper un livre, il suffit d'affecter l'url visée à la variable __url__ et de le lancer dans un terminal. Il en est  de même pour les scripts __scraper_category.py__ et __scraper_site.py__, qui permettent respectivement de scraper une catégorie de livres et toutes les catégories de livres du site __http://books.toscrape.com__.
+Le script __lancer_le_scraper__ permet de scraper un livre, une catégorie ou l'ensemble du site  __'Books to Scrape'__, il suffit de répondre à la 1ère question par : __produit__ ou __catégorie__ ou __site__, à la 2ème question on renseigne l'URL voulue, le traitement va ensuite avoir lieu. Le résultat sera sous format d'un fichier __csv__ dans le cas d'un produit, sinon un dossier __'data'__ sera généré contenant l'ensemble des images et des fichiers CSV dans le répertoire où nous nous trouvons.
